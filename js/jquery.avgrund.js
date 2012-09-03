@@ -74,16 +74,16 @@
 			// show popup
 			function activate() {
 				$body
-				  .bind('keyup', onDocumentKeyup)
-				  .bind('click', onDocumentClick)
+				  .on('keyup', onDocumentKeyup)
+				  .on('click', onDocumentClick)
           .addClass('avgrund-active');
 			}
 
 			// hide popup
 			function deactivate() {
 				$body
-				  .unbind('keyup', onDocumentKeyup)
-				  .unbind('click', onDocumentClick)
+				  .off('keyup', onDocumentKeyup)
+				  .off('click', onDocumentClick)
           .removeClass('avgrund-active');
 			}
 
