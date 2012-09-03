@@ -57,10 +57,8 @@
 			
 			// close popup by clicking Esc button
 			function onDocumentKeyup(e) {
-				if (options.closeByEscape == true) {
-					if (e.keyCode === 27) {
-						hide();
-					}
+				if (options.closeByEscape == true && e.keyCode === 27) {
+					hide();
 				}
 			}
 			
