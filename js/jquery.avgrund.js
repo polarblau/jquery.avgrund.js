@@ -8,34 +8,35 @@
 (function($) {
 	$.fn.avgrund = function(options) {
 		var defaults = {
-			width: 380, // max = 640
-			height: 280, // max = 350
-			showClose: false,
-			showCloseText: '',
-			closeByEscape: true,
-			closeByDocument: true,
-			holderClass: '',
-			overlayClass: '',
+			width               : 380, // max = 640
+			height              : 280, // max = 350
+			showClose           : false,
+			showCloseText       : '',
+			closeByEscape       : true,
+			closeByDocument     : true,
+			holderClass         : '',
+			overlayClass        : '',
 			enableStackAnimation: false,
-			onBlurContainer: '',
-			template: '<p>This is test popin content!</p>'
+			onBlurContainer     : '',
+			template            : '<p>This is test popin content!</p>'
 		};
 		var options = $.extend(defaults, options);
 
 		return this.each(function() {
-			var body = $('body'),
-				maxWidth = options.width > 640 ? 640 : options.width,
-				maxHeight = options.height > 350 ? 350 : options.height;
+			var $body     = $('body'),
+			    maxWidth  = options.width > 640 ? 640 : options.width,
+				  maxHeight = options.height > 350 ? 350 : options.height;
 
-			body.addClass('avgrund-ready');
-			body.append('<div class="avgrund-overlay ' + options.overlayClass + '"></div>');				
-			body.append('<div class="avgrund-popin ' + options.holderClass + '">' + options.template + '</div>');
+			$body
+			  .addClass('avgrund-ready')
+			  .append('<div class="avgrund-overlay ' + options.overlayClass + '"></div>')
+			  .append('<div class="avgrund-popin ' + options.holderClass + '">' + options.template + '</div>');
 
 			$('.avgrund-popin').css({
-				'width': maxWidth + 'px',
-				'height': maxHeight + 'px',
+				'width'      : maxWidth + 'px',
+				'height'     : maxHeight + 'px',
 				'margin-left': '-' + (maxWidth / 2 + 10) + 'px',
-				'margin-top': '-' + (maxHeight / 2 + 10) + 'px'
+				'margin-top' : '-' + (maxHeight / 2 + 10) + 'px'
 			});
 
 			if (options.showClose == true) {
@@ -74,24 +75,23 @@
 
 			// show popup
 			function activate() {
-				body.bind('keyup', onDocumentKeyup);
-				body.bind('click', onDocumentClick);
-
-				body.addClass('avgrund-active');
+				$body
+				  .bind('keyup', onDocumentKeyup)
+				  .bind('click', onDocumentClick)
+          .addClass('avgrund-active');
 			}
 
 			// hide popup
 			function deactivate() {
-				body.unbind('keyup', onDocumentKeyup);
-				body.unbind('click', onDocumentClick);
-
-				body.removeClass('avgrund-active');
+				$body
+				  .unbind('keyup', onDocumentKeyup)
+				  .unbind('click', onDocumentClick)
+          .removeClass('avgrund-active');
 			}
 
 			// init on click
 			$(this).click(function(e) {
 				e.stopPropagation();
-
 				activate();
 			});
 		});
