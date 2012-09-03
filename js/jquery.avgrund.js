@@ -37,10 +37,10 @@
       }
 			
 			$('.avgrund-popin').css({
-				'width'      : options.width + 'px',
-				'height'     : options.height + 'px',
-				'margin-left': '-' + (options.width / 2 + 10) + 'px',
-				'margin-top' : '-' + (options.height / 2 + 10) + 'px'
+				'width'     : options.width + 'px',
+				'height'    : options.height + 'px',
+				'marginLeft': '-' + (options.width / 2 + 10) + 'px',
+				'marginTop' : '-' + (options.height / 2 + 10) + 'px'
 			});
 
 			if (options.showClose == true) {
