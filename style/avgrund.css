@@ -3,7 +3,7 @@ html, body {
 	overflow: auto; /* TIP: set it to 'auto' if you have long content pages, in other cases 'hidden' will be enough */
 }
 
-.avgrund-dialog {
+body.avgrund-ready .avgrund-dialog {
 	position: absolute;
 	background: #fff;
 	padding: 10px;
@@ -23,7 +23,7 @@ html, body {
 	transform: scale(0.8);
 }
 
-.avgrund-overlay {
+body.avgrund-ready .avgrund-overlay {
 	background: #000;
 	position: fixed;
 	width: 100%;
@@ -37,8 +37,8 @@ html, body {
 }
 
 body.avgrund-ready, 
-.avgrund-ready .avgrund-dialog, 
-.avgrund-ready .avgrund-overlay {
+body.avgrund-ready .avgrund-dialog, 
+body.avgrund-ready .avgrund-overlay {
 	-webkit-transform-origin: 50% 50%;
 	-moz-transform-origin: 50% 50%;
 	-ms-transform-origin: 50% 50%;
@@ -52,7 +52,7 @@ body.avgrund-ready,
 	transition: 0.3s all ease-out;
 }
 
-body.avgrund-active {
+body.avgrund-ready.avgrund-active {
 	-webkit-transform: scale(0.9);
 	-moz-transform: scale(0.9);
 	-ms-transform: scale(0.9);
@@ -61,7 +61,7 @@ body.avgrund-active {
 	/* overflow: hidden; TIP: disables scrolling for long documents */
 }
 
-.avgrund-active .avgrund-dialog {
+body.avgrund-ready.avgrund-active .avgrund-dialog {
 	visibility: visible;
 	opacity: 1;
 	filter: alpha(opacity=100);
@@ -73,13 +73,13 @@ body.avgrund-active {
 	transform: scale(1.1);
 }
 
-.avgrund-active .avgrund-overlay {
+body.avgrund-ready.avgrund-active .avgrund-overlay {
 	visibility: visible;
 	opacity: .5;
 	filter: alpha(opacity=50);
 }
 
-.avgrund-dialog.avgrund-animate-stack {
+body.avgrund-ready .avgrund-dialog.avgrund-animate-stack {
 	-webkit-transform: scale(1.5);
 	-moz-transform: scale(1.5);
 	-ms-transform: scale(1.5);
@@ -87,7 +87,7 @@ body.avgrund-active {
 	transform: scale(1.5);
 }
 
-.avgrund-active .avgrund-dialog.avgrund-animate-stack {
+body.avgrund-ready.avgrund-active .avgrund-dialog.avgrund-animate-stack {
 	-webkit-transform: scale(1.1);
 	-moz-transform: scale(1.1);
 	-ms-transform: scale(1.1);
@@ -95,7 +95,7 @@ body.avgrund-active {
 	transform: scale(1.1);
 }
 
-.avgrund-active .avgrund-blur {
+body.avgrund-ready.avgrund-active .avgrund-blur {
 	-webkit-filter: blur(1px);
 	-moz-filter: blur(1px);
 	-ms-filter: blur(1px);
