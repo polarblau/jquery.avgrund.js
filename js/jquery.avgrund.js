@@ -8,16 +8,16 @@
 (function($) {
   $.fn.avgrund = function(options) {
     var defaults = {
-      width               : 380,
-      height              : 280,
-      showClose           : false,
-      showCloseText       : '',
-      closeByEscape       : true,
-      closeByDocument     : true,
-      holderClass         : '',
-      overlayClass        : '',
-      enableStackAnimation: false,
-      blurContainer       : ''
+      width          : 380,
+      height         : 280,
+      showClose      : false,
+      showCloseText  : '',
+      closeByEscape  : true,
+      closeByDocument: true,
+      holderClass    : '',
+      overlayClass   : '',
+      animationType  : 'default',
+      blurContainer  : ''
     };
     var options = $.extend(defaults, options);
 
@@ -48,7 +48,7 @@
         $dialog.append('<a href="#" class="avgrund-close">' + options.showCloseText + '</a>');
       }
 
-      if (options.enableStackAnimation === true) {
+      if (options.animationType === 'stack') {
         $dialog.addClass('stack');
       }
 
