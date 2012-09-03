@@ -64,15 +64,10 @@
 			
 			// close popup by clicking outside it
 			function onDocumentClick(e) {
-				if (options.closeByDocument == true) {
-					if ($(e.target).is('.avgrund-overlay, .avgrund-close')) {
-						hide();
-					}
-				} else {
-					if ($(e.target).is('.avgrund-close')) {
-						hide();
-					}	
-				}
+			  if (options.closeByDocument == true && $(e.target).is('.avgrund-overlay') ||
+			      $(e.target).is('.avgrund-close')) {
+			      hide();
+			  }      
 			}
 
 			// show popup
