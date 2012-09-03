@@ -17,19 +17,25 @@
 			holderClass         : '',
 			overlayClass        : '',
 			enableStackAnimation: false,
-			onBlurContainer     : '',
-			template            : '<p>This is test popin content!</p>'
+			onBlurContainer     : ''
 		};
 		var options = $.extend(defaults, options);
 
 		return this.each(function() {
-			var $body = $('body');
-
-			$body
-			  .addClass('avgrund-ready')
-			  .append('<div class="avgrund-overlay ' + options.overlayClass + '"></div>')
-			  .append('<div class="avgrund-popin ' + options.holderClass + '">' + options.template + '</div>');
-
+		  var $this   = $(this),
+			    $body   = $('body');
+      
+      // this is the first time we call this plugin
+      if ($body.hasClass('avgrund-ready')) {
+        $dialog = $('body > avgrund-popin');
+      } else {
+        $dialog = $('<div class="avgrund-popin ' + options.holderClass + '"></div>');
+        $body
+  			  .addClass('avgrund-ready')
+  			  .append('<div class="avgrund-overlay ' + options.overlayClass + '"></div>')
+  			  .append($dialog);
+      }
+			
 			$('.avgrund-popin').css({
 				'width'      : options.width + 'px',
 				'height'     : options.height + 'px',
@@ -53,7 +59,7 @@
 			function onDocumentKeyup(e) {
 				if (options.closeByEscape == true) {
 					if (e.keyCode === 27) {
-						deactivate();
+						hide();
 					}
 				}
 			}
@@ -62,17 +68,18 @@
 			function onDocumentClick(e) {
 				if (options.closeByDocument == true) {
 					if ($(e.target).is('.avgrund-overlay, .avgrund-close')) {
-						deactivate();
+						hide();
 					}
 				} else {
 					if ($(e.target).is('.avgrund-close')) {
-						deactivate();
+						hide();
 					}	
 				}
 			}
 
 			// show popup
-			function activate() {
+			function show(content) {
+			  $dialog.html(content);
 				$body
 				  .on('keyup', onDocumentKeyup)
 				  .on('click', onDocumentClick)
@@ -80,18 +87,15 @@
 			}
 
 			// hide popup
-			function deactivate() {
+			function hide() {
 				$body
 				  .off('keyup', onDocumentKeyup)
 				  .off('click', onDocumentClick)
           .removeClass('avgrund-active');
 			}
-
-			// init on click
-			$(this).click(function(e) {
-				e.stopPropagation();
-				activate();
-			});
+      
+      show($this);
+        
 		});
 
 	}
