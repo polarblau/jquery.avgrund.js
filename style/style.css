@@ -80,6 +80,10 @@ pre, code {
 	margin: 10px 0 0;
 }
 
+#dialog-content {
+  display: none;
+}
+
 /* Custom styles for dialog & close button */
 .custom {
 	color: #555;

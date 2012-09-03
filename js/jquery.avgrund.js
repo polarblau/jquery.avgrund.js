@@ -11,7 +11,7 @@
       width          : 380,
       height         : 280,
       showClose      : false,
-      showCloseText  : '',
+      closeText      : '',
       closeByEscape  : true,
       closeByDocument: true,
       dialogClass    : '',
@@ -23,11 +23,12 @@
 
     return this.each(function() {
       var $this   = $(this),
-          $body   = $('body');
+          $body   = $('body'),
+          $dialog;
       
       // has this plugin be called before? if yes, re-use some stuff
       if ($body.hasClass('avgrund-ready')) {
-        $dialog = $('body > .avgrund-dialog');
+        $dialog = $('body > .avgrund-dialog').empty();
         
       } else {
         $dialog = $('<div class="avgrund-dialog ' + options.dialogClass + '"></div>');
@@ -44,8 +45,8 @@
         'marginTop' : '-' + (options.height / 2 + 10) + 'px'
       });
 
-      if (options.showClose === true) {
-        $dialog.append('<a href="#" class="avgrund-close">' + options.showCloseText + '</a>');
+      if (options.closeText) {
+        $dialog.append('<a href="#" class="avgrund-close" title="' + options.closeText + '">' + options.closeText + '</a>');
       }
 
       if (options.animationType === 'stack') {
@@ -87,8 +88,8 @@
           .off('click', onDocumentClick)
           .removeClass('avgrund-active');
       }
-      
-      show($this);
+
+      show($this.html());
         
     });
 
