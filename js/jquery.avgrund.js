@@ -43,11 +43,11 @@
 				'marginTop' : '-' + (options.height / 2 + 10) + 'px'
 			});
 
-			if (options.showClose == true) {
+			if (options.showClose === true) {
 				$('.avgrund-popin').append('<a href="#" class="avgrund-close">' + options.showCloseText + '</a>');
 			}
 
-			if (options.enableStackAnimation == true) {
+			if (options.enableStackAnimation === true) {
 				$('.avgrund-popin').addClass('stack');
 			}
 
@@ -57,14 +57,14 @@
 			
 			// close popup by clicking Esc button
 			function onDocumentKeyup(e) {
-				if (options.closeByEscape == true && e.keyCode === 27) {
+				if (options.closeByEscape === true && e.keyCode === 27) {
 					hide();
 				}
 			}
 			
 			// close popup by clicking outside it
 			function onDocumentClick(e) {
-			  if (options.closeByDocument == true && $(e.target).is('.avgrund-overlay') ||
+			  if (options.closeByDocument === true && $(e.target).is('.avgrund-overlay') ||
 			      $(e.target).is('.avgrund-close')) {
 			      hide();
 			  }      
