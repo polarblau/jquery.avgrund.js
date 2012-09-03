@@ -3,7 +3,7 @@ html, body {
 	overflow: auto; /* TIP: set it to 'auto' if you have long content pages, in other cases 'hidden' will be enough */
 }
 
-.avgrund-popin {
+.avgrund-dialog {
 	position: absolute;
 	background: #fff;
 	padding: 10px;
@@ -37,7 +37,7 @@ html, body {
 }
 
 body.avgrund-ready, 
-.avgrund-ready .avgrund-popin, 
+.avgrund-ready .avgrund-dialog, 
 .avgrund-ready .avgrund-overlay {
 	-webkit-transform-origin: 50% 50%;
 	-moz-transform-origin: 50% 50%;
@@ -61,7 +61,7 @@ body.avgrund-active {
 	/* overflow: hidden; TIP: disables scrolling for long documents */
 }
 
-.avgrund-active .avgrund-popin {
+.avgrund-active .avgrund-dialog {
 	visibility: visible;
 	opacity: 1;
 	filter: alpha(opacity=100);
@@ -79,7 +79,7 @@ body.avgrund-active {
 	filter: alpha(opacity=50);
 }
 
-.avgrund-popin.stack {
+.avgrund-dialog.avgrund-animate-stack {
 	-webkit-transform: scale(1.5);
 	-moz-transform: scale(1.5);
 	-ms-transform: scale(1.5);
@@ -87,7 +87,7 @@ body.avgrund-active {
 	transform: scale(1.5);
 }
 
-.avgrund-active .avgrund-popin.stack {
+.avgrund-active .avgrund-dialog.avgrund-animate-stack {
 	-webkit-transform: scale(1.1);
 	-moz-transform: scale(1.1);
 	-ms-transform: scale(1.1);

@@ -27,17 +27,17 @@
       
       // has this plugin be called before? if yes, re-use some stuff
       if ($body.hasClass('avgrund-ready')) {
-        $dialog = $('body > .avgrund-popin');
+        $dialog = $('body > .avgrund-dialog');
         
       } else {
-        $dialog = $('<div class="avgrund-popin ' + options.dialogClass + '"></div>');
+        $dialog = $('<div class="avgrund-dialog ' + options.dialogClass + '"></div>');
         $body
           .addClass('avgrund-ready')
           .append('<div class="avgrund-overlay ' + options.overlayClass + '"></div>')
           .append($dialog);
       }
       
-      $('.avgrund-popin').css({
+      $('.avgrund-dialog').css({
         'width'     : options.width + 'px',
         'height'    : options.height + 'px',
         'marginLeft': '-' + (options.width / 2 + 10) + 'px',
@@ -49,7 +49,7 @@
       }
 
       if (options.animationType === 'stack') {
-        $dialog.addClass('stack');
+        $dialog.addClass('avgrund-animate-stack');
       }
 
       if (options.blurContainer) {
