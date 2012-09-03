@@ -8,8 +8,8 @@
 (function($) {
 	$.fn.avgrund = function(options) {
 		var defaults = {
-			width               : 380, // max = 640
-			height              : 280, // max = 350
+			width               : 380,
+			height              : 280,
 			showClose           : false,
 			showCloseText       : '',
 			closeByEscape       : true,
@@ -23,9 +23,7 @@
 		var options = $.extend(defaults, options);
 
 		return this.each(function() {
-			var $body     = $('body'),
-			    maxWidth  = options.width > 640 ? 640 : options.width,
-				  maxHeight = options.height > 350 ? 350 : options.height;
+			var $body = $('body');
 
 			$body
 			  .addClass('avgrund-ready')
@@ -33,10 +31,10 @@
 			  .append('<div class="avgrund-popin ' + options.holderClass + '">' + options.template + '</div>');
 
 			$('.avgrund-popin').css({
-				'width'      : maxWidth + 'px',
-				'height'     : maxHeight + 'px',
-				'margin-left': '-' + (maxWidth / 2 + 10) + 'px',
-				'margin-top' : '-' + (maxHeight / 2 + 10) + 'px'
+				'width'      : options.width + 'px',
+				'height'     : options.height + 'px',
+				'margin-left': '-' + (options.width / 2 + 10) + 'px',
+				'margin-top' : '-' + (options.height / 2 + 10) + 'px'
 			});
 
 			if (options.showClose == true) {
