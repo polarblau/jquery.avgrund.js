@@ -14,7 +14,7 @@
       showCloseText  : '',
       closeByEscape  : true,
       closeByDocument: true,
-      holderClass    : '',
+      dialogClass    : '',
       overlayClass   : '',
       animationType  : 'default',
       blurContainer  : ''
@@ -30,7 +30,7 @@
         $dialog = $('body > .avgrund-popin');
         
       } else {
-        $dialog = $('<div class="avgrund-popin ' + options.holderClass + '"></div>');
+        $dialog = $('<div class="avgrund-popin ' + options.dialogClass + '"></div>');
         $body
           .addClass('avgrund-ready')
           .append('<div class="avgrund-overlay ' + options.overlayClass + '"></div>')
