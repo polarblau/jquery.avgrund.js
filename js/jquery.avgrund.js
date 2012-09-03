@@ -17,7 +17,7 @@
       holderClass         : '',
       overlayClass        : '',
       enableStackAnimation: false,
-      onBlurContainer     : ''
+      blurContainer       : ''
     };
     var options = $.extend(defaults, options);
 
@@ -52,8 +52,8 @@
         $dialog.addClass('stack');
       }
 
-      if (options.onBlurContainer != '') {
-        $(options.onBlurContainer).addClass('avgrund-blur');
+      if (options.blurContainer) {
+        $(options.blurContainer).addClass('avgrund-blur');
       }
       
       // close popup by clicking Esc button
